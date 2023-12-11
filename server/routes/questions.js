@@ -170,11 +170,9 @@ function SearchTextFunc(inputText, questions, tags) {
 
   if (/^[a-zA-Z0-9\s]*$/.test(searchValue)) {
     let blockValue = searchValue.match(/\[(.*?)\]/g);
-    // eslint-disable-next-line
     blockValue = blockValue?.map((str) => str.replace(/[\[\]]/g, "")) || [];
     let nonBlockValue = searchValue.split(/\[.*?\]/);
   } else {
-    // Handle invalid input, log an error, or take appropriate action
     console.error("Invalid input detected!");
   }
 

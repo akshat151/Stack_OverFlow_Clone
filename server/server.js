@@ -19,12 +19,17 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    cookie: { maxAge: 30000 },
+    cookie: { 
+      maxAge: 30000,
+      secure: true,
+    },
     saveUninitialized: false,
     resave: false
 }));
+  
 
 // CSRF middleware
 const csrfProtection = csrf({ cookie: true });
