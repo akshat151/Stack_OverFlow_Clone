@@ -168,12 +168,15 @@ function SearchTextFunc(inputText, questions, tags) {
 
   if (searchValue.length === 0) return questions;
 
-  // block value & non block value
-  let blockValue = searchValue.match(/\[(.*?)\]/g);
-  // eslint-disable-next-line
-  blockValue = blockValue?.map((str) => str.replace(/[\[\]]/g, "")) || [];
-  let nonBlockValue = searchValue.split(/\[.*?\]/);
-  nonBlockValue = nonBlockValue.join(" ").trim();
+  if (/^[a-zA-Z0-9\s]*$/.test(searchValue)) {
+    let blockValue = searchValue.match(/\[(.*?)\]/g);
+    // eslint-disable-next-line
+    blockValue = blockValue?.map((str) => str.replace(/[\[\]]/g, "")) || [];
+    let nonBlockValue = searchValue.split(/\[.*?\]/);
+  } else {
+    // Handle invalid input, log an error, or take appropriate action
+    console.error("Invalid input detected!");
+  }
 
   // *** filter logic
   const filteredQueList = questions.filter(({ title, text, tagIds }) => {
