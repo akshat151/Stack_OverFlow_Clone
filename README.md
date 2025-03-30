@@ -16,7 +16,8 @@ A full-stack Q&A web application modeled after Stack Overflow. Built using **Rea
 This application is divided into three main environments:
 
 - **Client (Frontend)** — built with React  
-- **Server (Backend)** — built with Express and Node.js  
+- **Server (Backend)** — built with Express and Node.js
+- **Database (Database)** — built with MongoDB   
 - **Testing Environment** — end-to-end testing using Cypress
 
 ### 🗺️ Architecture Diagram
